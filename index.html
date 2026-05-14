@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WELCOME TO MY BLOG</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(to right, #ffdee9, #b5fffc, #fff6b7);
+    margin: 0;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+    border: none;
+    background: #f4a6b8;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.box {
+    margin: 20px auto;
+    width: 70%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+body.dark-mode {
+    background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
+    color: white;
+}
+
+body.dark-mode .box {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode table td {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.dark-mode table th {
+    background: #ff8fab;
+}
+
+body.dark-mode button {
+    background: #ff8fab;
+}
+
+.section {
+    display: none;
+}
+
+.about-img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border: 8px solid white;
+    border-bottom: 25px solid white;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+.photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 8px solid white;
+    border-bottom: 25px solid white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
+
+table {
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 80%;
+}
+
+th {
+    background: #f4a6b8;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+td {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+
+td:hover {
+    transform: scale(1.02);
+}
+
+.fav,
+.edu,
+.con,
+.ent,
+.cine {
+    display: none;
+    margin-top: 10px;
+}
+
+.cinema-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cinema-item {
+    position: relative;
+}
+
+.cinema-item .overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.cinema-item:hover .overlay {
+    opacity: 1;
+}
+
+.home-section {
+    height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.35)
+        ),
+        url('images/homebg.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.home-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-card {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    width: 70%;
+    max-width: 700px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation: floatUp 1.2s ease;
+}
+
+.home-title {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.home-quote {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.datetime-box {
+    margin-bottom: 25px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+#clock {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.explore-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff8fab;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255,143,171,0.8);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 35px;
+    }
+
+    .home-quote {
+        font-size: 16px;
+    }
+
+    .home-card {
+        width: 85%;
+        padding: 30px;
+    }
+}
+
+.btn-toggle {
+    background-color: #d81b60;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+    transition: 0.3s;
+    margin-bottom: 40px;
+}
+
+.btn-toggle:hover {
+    background-color: #ad1457;
+    transform: scale(1.05);
+}
+
+.playlist-container {
+    display: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 30px;
+    max-width: 95%;
+    overflow-x: auto;
+    padding: 20px;
+    scrollbar-width: thin;
+}
+
+.audio-card {
+    background-color: #f8bbd0;
+    flex: 0 0 280px;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.2);
+    border: 3px solid #f48fb1;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.audio-card:hover {
+    transform: translateY(-10px);
+    background-color: #f48fb1;
+}
+
+.artist-img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 4px solid white;
+    cursor: pointer;
+}
+
+.song-title {
+    display: block;
+    font-weight: bold;
+    color: #880e4f;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.healing-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.healing-card {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.healing-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: rgba(255, 182, 193, 0.3);
+}
+
+.healing-card p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.edu-text {
+    width: 70%;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #444;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(6px);
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-family: Arial;
+    transition: 0.4s;
+}
+
+.edu-text:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+</style>
+</head>
+<body>
+
+
+<h1>Naziella’s Cozy Digital Space🌷✨</h1>
+<p>Hey peeps! You've just found my blog 👀✨</p>
+
+<!-- NAVIGATION BUTTONS -->
+<button onclick="showSection('home')">🏠 Home</button>
+<button onclick="toggleMode()">🌗</button>
+<button onclick="showSection('about')">About Me</button>
+<button onclick="showSection('favourite')">Favourite Things</button>
+<button onclick="showSection('education')">Education</button>
+<button onclick="showSection('contact')">Contact Me</button>
+<button onclick="showSection('entertainment')">Entertainment</button>
+<button onclick="showSection('playlist')">Playlist</button>
+
+<hr>
+
+
+<div class="box">
+
+    
+    <div id="home" class="section home-section">
+
+        
+        <div class="home-overlay">
+
+            
+            <div class="home-card">
+
+                <h1 class="home-title">
+                    NAZIELLA'S BLOG 💫🫧
+                </h1>
+
+                <p class="home-quote">
+                    - Every chapter of me is still being written - 🕊️
+                </p>
+
+                    <div class="datetime-box">
+                    <p id="date"></p>
+                    <p id="clock"></p>
+                </div>
+
+                <button class="explore-btn" onclick="showSection('about')">
+                    Explore My World ✨
+                </button>
+
+                
+                <h3 class="iml-note">
+                     © 2026 Naziella’s Blog ✨ Created as part of the IML470 project 
+                <h3>
+
+            </div> 
+        </div> 
+
+    </div> 
+    
+    <div id="about" class="section">
+
+        <h2>About Me 🌸💌</h2>
+
+        
+        <div style="display:inline-block; background:white; padding:10px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+
+            <img src="images/me.jpeg" class="about-img">
+
+            <p style="margin:5px; font-size:13px;">
+                “Still learning how to be, while becoming who I want to be.” 🫧 
+            </p>
+
+        </div>
+
+        <ul style="list-style: none; padding: 0;">
+            <li>🎀 Name: Tuan Nurul Naziella Hafizah</li>
+            <li>🎂 Age: 21 years old</li>
+            <li>📍 Origin: Bachok, Kelantan</li>
+            <li>🎓 Occupation: Bachelor's degree student</li>
+        </ul>
+
+        <hr>
+
+        
+        <h3>ME IN A NUTSHELL 🪄🪞</h3>
+
+        <table border="1" style="width:80%;">
+            <tr>
+                <th>Section</th>
+                <th>Details</th>
+            </tr>
+
+            <tr>
+                <td>favourite colours</td>
+                <td>blue, pink, and purple 💙🩷💜</td>
+            </tr>
+
+            <tr>
+                <td>hobbies</td>
+                <td>reading novels and watching Netflix 📚🎬</td>
+            </tr>
+
+            <tr>
+                <td>favourite sports</td>
+                <td>football and badminton ⚽🏸</td>
+            </tr>
+
+            <tr>
+                <td>dream travel destinations</td>
+                <td>Switzerland, Kashmir, and Italy ✈️</td>
+            </tr>
+
+            <tr>
+                <td>celebrity crush</td>
+                <td>Wi Ha-Joon, Ji Chang Wook, and Lee Dong-wook 💕🫶</td>
+            </tr>
+
+        </table>
+
+    </div> 
+
+</div> 
+
+
+
+<div id="favourite" class="section">
+
+    <h2>Favourite Things 💕⭐</h2>
+
+    
+    <button onclick="showFav('biblio')">📖 Bibliophile</button>
+    <button onclick="showFav('cat')">🐱 Ailurophile</button>
+    <button onclick="showFav('people')">👯 Favourite People</button>
+    <button onclick="showFav('food')">🍜 Favourite Tummy</button>
+
+    <hr>
+
+    
+    <div id="biblio" class="fav">
+        <p>“A girl who finds comfort in pages, peace in silence, and happiness in every story she reads.” ✨</p>
+
+        <img src="images/reading.jpeg" class="photo">
+        <img src="images/novel1.jpeg" class="photo">
+        <img src="images/novel2.jpeg" class="photo">
+    </div>
+
+    
+    <div id="cat" class="fav">
+        <p>“Sometimes, all I need is someone who listens without judging me, just like cats do. Even a simple ‘meow meow’ can feel more comforting than words that hurt.” 🐈🐾</p>
+
+        <img src="images/ailurophile.jpeg" class="photo">
+        <img src="images/cat1.jpeg" class="photo">
+        <img src="images/cat2.jpeg" class="photo">
+        <img src="images/cat3.jpeg" class="photo">
+    </div>
+
+    
+    <div id="people" class="fav">
+        <p>“Ten years, side by side... through laughter, silence, and everything in between.” 💛</p>
+
+        <img src="images/friend1.jpeg" class="photo">
+        <img src="images/friend2.jpeg" class="photo">
+        <img src="images/friend3.jpeg" class="photo">
+        <img src="images/friend4.jpeg" class="photo">
+        <img src="images/friend5.jpeg" class="photo">
+    </div>
+
+    
+    <div id="food" class="fav">
+        <p>“Mood: thinking about food again.” 🍽️</p>
+
+        <img src="images/nasilemak.jpeg" class="photo">
+        <img src="images/nasikerabu.jpeg" class="photo">
+        <img src="images/nasigoreng.jpeg" class="photo">
+        <img src="images/icechocolate.jpeg" class="photo">
+        <img src="images/hazelnutcheese.jpeg" class="photo">
+    </div>
+
+</div>
+
+
+
+<div id="education" class="section">
+
+    <h2>Education Journey 📚✨</h2>
+
+    
+    <button onclick="showEdu('spm')">SPM 🎓</button>
+    <button onclick="showEdu('stpm')">STPM 🎓</button>
+    <button onclick="showEdu('degree')">BACHELOR'S DEGREE 🎓</button>
+
+    <hr>
+
+    
+    <div id="spm" class="edu">
+
+        <h3>SEKOLAH MENENGAH KEBANGSAAN RAJA SAKTI, KOTA JEMBAL, 16150, KOTA BHARU, KELANTAN</h3>
+
+        <img src="images/smkrs.png" class="photo">
+
+        <p class="edu-text">
+	School was never just about studying for me, it was about growing up, enjoying youth, and making memories.  
+	I still achieved 5A’s in SPM 🌷✨
+	</p>
+
+        <img src="images/spm1.jpeg" class="photo">
+        <img src="images/spm2.jpeg" class="photo">
+        <img src="images/spm4.jpeg" class="photo">
+        <img src="images/spm5.jpeg" class="photo">
+        <img src="images/spm6.jpeg" class="photo">
+
+    </div>
+
+    
+    <div id="stpm" class="edu">
+
+        <h3>SEKOLAH MENENGAH KEBANGSAAN RAJA SAKTI, KOTA JEMBAL, 16150, KOTA BHARU, KELANTAN</h3>
+
+        <img src="images/smkrs.png" class="photo">
+
+        <p class="edu-text">
+	I was once rejected from IPG, but that wasn’t the end of my journey.  
+	I chose STPM instead, where I grew, learned new skills, and discovered more about myself.  
+	I’m proud to have achieved a 3.38 CGPA 🌷✨
+	</p>
+
+        <img src="images/stpm1.jpeg" class="photo">
+        <img src="images/stpm2.jpeg" class="photo">
+        <img src="images/stpm3.jpeg" class="photo">
+        <img src="images/stpm4.jpeg" class="photo">
+        <img src="images/stpm5.jpeg" class="photo">
+
+    </div>
+
+    
+    <div id="degree" class="edu">
+
+        <h3>UNIVERSITI TEKNOLOGI MARA, SUNGAI PETANI, KEDAH</h3>
+
+        <img src="images/logouitm.png" class="photo">
+
+        <p class="edu-text">
+	I’m currently pursuing a Degree in Information Science (Library Management).  
+	Now in Semester 2, I’m learning, growing, and taking on new challenges every step of the way.  
+	Current GPA: 3.72 🌷✨
+	</p>>
+
+        <img src="images/degree1.jpeg" class="photo">
+        <img src="images/degree2.jpeg" class="photo">
+        <img src="images/degree3.jpeg" class="photo">
+        <img src="images/degree4.jpeg" class="photo">
+
+    </div>
+
+</div>
+
+<div id="contact" class="section">
+
+    <h2>📞 Contact Me</h2>
+
+    <!--  SUB BUTTONS -->
+    <button onclick="showCon('email')">📧 Email</button>
+    <button onclick="showCon('instagram')">📸 Instagram</button>
+    <button onclick="showCon('tiktok')">🎵 TikTok</button>
+
+    <hr>
+
+    
+    <div id="email" class="con">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ella.nur@gmail.com" target="_blank">
+            <img src="images/gmail.jpg" class="photo">
+        </a>
+
+        <p>📧 Email: ella.nur21@gmail.com</p>
+    </div>
+
+
+    
+    <div id="instagram" class="con">
+        <a href="https://www.instagram.com/twooneella?igsh=Mzl0MHIyenI3YnM1" target="_blank">
+            <img src="images/instagram.jpg" class="photo">
+        </a>
+
+        <p>📸 Instagram: @twooneella</p>
+    </div>
+
+    
+    <div id="tiktok" class="con">
+        <a href="https://www.tiktok.com/@ella.nur21?_r=1&_t=ZS-96FIT6kCox3" target="_blank">
+            <img src="images/tiktok.png" class="photo">
+        </a>
+
+        <p>🎵 TikTok: @ella.nur21</p>
+    </div>
+
+</div>
+
+
+<div id="entertainment" class="section">
+
+    <h2>Entertainment 🎬</h2>
+
+    <!--  BUTTONS -->
+    <button onclick="showEnt('healing')">My Healing Space</button>
+    <button onclick="showEnt('cinema')">My Cinema</button>
+    
+
+    <hr>
+
+    
+<div id="healing" class="ent">
+
+    <h3>My Healing Space 🌿🕊️</h3>
+
+    <div class="healing-container">
+
+        <div class="healing-card">
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="images/youtube.png" class="photo">
+            </a>
+            <p>▶️ YouTube</p>
+        </div>
+
+        <div class="healing-card">
+            <a href="https://www.netflix.com" target="_blank">
+                <img src="images/netflix.png" class="photo">
+            </a>
+            <p>🎬 Netflix</p>
+        </div>
+
+    </div>
+
+</div>
+
+    
+    <div id="cinema" class="ent">
+
+        <h3>My Cinema 🎥🍿</h3>
+
+        
+        <button onclick="showCinema('movies')">Movies 🎬</button>
+        <button onclick="showCinema('animation')">Animation 📺</button>
+        <button onclick="showCinema('drama')">Drama 👑</button>
+        <button onclick="showCinema('variety')">Variety Show 🎭</button>
+
+        <hr>
+
+        
+        <div id="movies" class="cine cinema-row">
+
+            <div class="cinema-item">
+                <img src="images/sijjin.jpg" class="photo">
+                <div class="overlay">🎬 Sijjin</div>
+            </div>
+
+            <div class="cinema-item">
+                <img src="images/waktumaghrib.jpg" class="photo">
+                <div class="overlay">🎬 Waktu Maghrib</div>
+            </div>
+
+            <div class="cinema-item">
+                <img src="images/maharaja.jpg" class="photo">
+                <div class="overlay">🎬 Maharaja</div>
+            </div>
+
+            <div class="cinema-item">
+                <img src="images/baahubali.jpg" class="photo">
+                <div class="overlay">🎬 Baahubali</div>
+            </div>
+
+        </div>
+
+        
+        <div id="animation" class="cine cinema-row">
+
+            <div class="cinema-item">
+                <a href="https://www.youtube.com/c/LesCopaqueProduction" target="_blank">
+                    <img src="images/upinipin.jpg" class="photo">
+                    <div class="overlay">🌟 Les' Copaque Production</div>
+                </a>
+            </div>
+
+            <div class="cinema-item">
+                <a href="https://www.youtube.com/animasea" target="_blank">
+                    <img src="images/boboiboy.jpg" class="photo">
+                    <div class="overlay">⚡ AnimaSEA</div>
+                </a>
+            </div>
+
+            <div class="cinema-item">
+                <a href="https://www.youtube.com/@EjenAli" target="_blank">
+                    <img src="images/ejenali.jpg" class="photo">
+                    <div class="overlay">🕶️ Ejen Ali</div>
+                </a>
+            </div>
+
+        </div>
+
+        
+        <div id="drama" class="cine cinema-row">
+
+            <div class="cinema-item">
+                <img src="images/queen.jpg" class="photo">
+                <div class="overlay">👑 Queen of Tears</div>
+            </div>
+
+            <div class="cinema-item">
+                <img src="images/crown.jpg" class="photo">
+                <div class="overlay">👑 Perfect Crown</div>
+            </div>
+
+        </div>
+
+        
+        <div id="variety" class="cine cinema-row">
+
+            <div class="cinema-item">
+                <a href="https://www.youtube.com/@SBSRunningMan" target="_blank">
+                    <img src="images/runningman.jpg" class="photo">
+                    <div class="overlay">🏃 Running Man</div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div id="playlist" class="section">
+
+    <h2>🎧 Where words end, music begins 🎶</h2>
+
+    <button class="btn-toggle" onclick="togglePlaylist()" id="mainBtn">
+        Open Playlist 🎼☁️
+    </button>
+
+    <div class="playlist-container" id="playlistBox">
+
+        <!-- BTS -->
+        <div class="audio-card">
+            <a href="https://www.youtube.com/@BTS" target="_blank">
+                <img src="images/bts.jpg" class="artist-img">
+            </a>
+
+            <span class="song-title">BTS - Fake Love</span>
+
+            <audio controls>
+                <source src="audio/bts.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- DADALI -->
+        <div class="audio-card">
+            <a href="https://www.youtube.com/@ascadamusik" target="_blank">
+                <img src="images/dadali.jpg" class="artist-img">
+            </a>
+
+            <span class="song-title">Dadali - Disaat Aku Mencintaimu</span>
+
+            <audio controls>
+                <source src="audio/dadali.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- WALI -->
+        <div class="audio-card">
+            <a href="https://www.youtube.com/@NagaswaraOfficial" target="_blank">
+                <img src="images/wali.jpg" class="artist-img">
+            </a>
+
+            <span class="song-title">Wali - Yank</span>
+
+            <audio controls>
+                <source src="audio/wali.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- BILLIE -->
+        <div class="audio-card">
+            <a href="https://www.youtube.com/@BillieEilish" target="_blank">
+                <img src="images/billie.jpg" class="artist-img">
+            </a>
+
+            <span class="song-title">Billie Eilish - Wildflower</span>
+
+            <audio controls>
+                <source src="audio/billie.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+function showSection(id) {
+
+    let sections = document.getElementsByClassName("section");
+
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+
+    
+    if (id === "favourite") {
+        showFav("biblio");
+    }
+
+    
+    if (id === "education") {
+        showEdu("spm");
+    }
+
+    
+    if (id === "entertainment") {
+        showEnt("healing");
+    }
+}
+
+
+
+function showFav(id) {
+
+    let items = document.getElementsByClassName("fav");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+}
+
+
+
+function showEdu(id) {
+
+    let items = document.getElementsByClassName("edu");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+}
+
+
+
+function showCon(id) {
+
+    let items = document.getElementsByClassName("con");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+}
+
+
+function showEnt(id) {
+
+    let items = document.getElementsByClassName("ent");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+
+    
+    if (id === "cinema") {
+        showCinema("movies");
+    }
+}
+
+
+
+function showCinema(id) {
+
+    let items = document.getElementsByClassName("cine");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "flex";
+}
+
+
+
+
+function togglePlaylist() {
+
+    var box = document.getElementById("playlistBox");
+    var btn = document.getElementById("mainBtn");
+
+    if (box.style.display === "none" || box.style.display === "") {
+
+        box.style.display = "flex";
+        btn.innerHTML = "Close Playlist 🎼☁️";
+
+    } else {
+
+        box.style.display = "none";
+        btn.innerHTML = "Open Playlist 🎼☁️";
+    }
+}
+
+
+
+function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+
+
+function updateDateTime() {
+
+    let now = new Date();
+
+    document.getElementById("date").innerHTML =
+        now.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+    document.getElementById("clock").innerHTML =
+        now.toLocaleTimeString();
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    showSection("home");
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+});
+
+</script>
+
+</body>
+</html>
